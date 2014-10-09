@@ -1,0 +1,32 @@
+{% extends 'tsCMSSystemBundle::layout.html.twig' %}
+{% block title %}{{ "newsletterlists"|trans }}{% endblock %}
+{% block content %}
+    <a href="{{ path("tscms_newsletter_newsletterlist_create") }}" class="btn btn-primary">{{ "newsletterlist.create"|trans }}</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>{{ "newsletterlist.title"|trans }}</th>
+            <th>{{ "newsletterlist.subscribers"|trans }}</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for newsletterlistData in newsletterlists %}
+            {% set newsletterlist = newsletterlistData.0 %}
+            <tr>
+                <td>{{ newsletterlist.title }}</td>
+                <td>{{ newsletterlistData.subscriberCount }}</td>
+                <td>
+                    <a href="{{ path("tscms_newsletter_newsletterlist_edit", {id: newsletterlist.id}) }}">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                    <a href="{{ path("tscms_newsletter_newsletterlist_delete", {id: newsletterlist.id}) }}">
+                        <i class="fa fa-times-circle"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

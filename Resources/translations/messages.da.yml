@@ -1,0 +1,8 @@
+newsletterlists: Nyhedsbrevelister
+newsletterlist:
+  title: Titel
+  subscribers: Tilmeldte
+
+  create: Opret liste
+  edit: Rediger liste
+  save: Gem

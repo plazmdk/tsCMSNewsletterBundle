@@ -1,0 +1,6 @@
+services:
+    tsCMS_newsletter.newsletterservice:
+        class: tsCMS\NewsletterBundle\Services\NewsletterService
+        arguments: [ @doctrine.orm.entity_manager, @router, @translator ]
+        tags:
+            - { name: kernel.event_listener, event: tsCMS.buildSiteStructure, method: onBuildSitestructure }
