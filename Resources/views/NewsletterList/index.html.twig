@@ -11,11 +11,10 @@
         </tr>
         </thead>
         <tbody>
-        {% for newsletterlistData in newsletterlists %}
-            {% set newsletterlist = newsletterlistData.0 %}
+        {% for newsletterlist in newsletterlists %}
             <tr>
                 <td>{{ newsletterlist.title }}</td>
-                <td>{{ newsletterlistData.subscriberCount }}</td>
+                <td>{{ newsletterlist.subscriberCount|length }}</td>
                 <td>
                     <a href="{{ path("tscms_newsletter_newsletterlist_edit", {id: newsletterlist.id}) }}">
                         <i class="fa fa-edit"></i>

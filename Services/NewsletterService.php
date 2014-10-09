@@ -40,22 +40,11 @@ class NewsletterService {
     }
 
 
-    public function onBuildSiteStructure(BuildSiteStructureEvent $event) {
-        $pagesElement = new SiteStructureGroup("Nyhedsbrev","fa-envelope-o");
-        $pagesElement->addElement(new SiteStructureAction($this->translator->trans("newsletterlists"),$this->router->generate("tscms_newsletter_newsletterlist_index")));
-
-        $event->addElement($pagesElement);
-    }
-
     /**
      * @return NewsletterList[]
      */
     public function getNewsletterLists() {
-        $qb = $this->em->getRepository("tsCMSNewsletterBundle:NewsletterList")->createQueryBuilder("nl");
-        $qb->select("nl, count(s) AS subscriberCount");
-        $qb->leftJoin("nl.subscribers","s");
-
-        return $qb->getQuery()->getResult();
+        return $this->em->getRepository("tsCMSNewsletterBundle:NewsletterList")->findAll();
     }
 
     public function addSubscriber($newsletterId, $name, $email)
@@ -79,4 +68,11 @@ class NewsletterService {
             $this->em->flush($subscriber);
         }
     }
-} 
+
+    public function onBuildSiteStructure(BuildSiteStructureEvent $event) {
+        $pagesElement = new SiteStructureGroup("Nyhedsbrev","fa-envelope-o");
+        $pagesElement->addElement(new SiteStructureAction($this->translator->trans("newsletterlists"),$this->router->generate("tscms_newsletter_newsletterlist_index")));
+
+        $event->addElement($pagesElement);
+    }
+}
