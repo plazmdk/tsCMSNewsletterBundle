@@ -64,7 +64,7 @@ class NewsletterService {
         /** @var Newsletterlist $newsletterList */
         $newsletterList = $repository->find($newsletterId);
 
-        $existing = $this->em->getRepository("tsCmsNewsletterBundle:NewsletterListSubscriber")->findOneBy(array(
+        $existing = $this->em->getRepository("tsCMSNewsletterBundle:NewsletterListSubscriber")->findOneBy(array(
             "email" => $email,
             "newsletterList" => $newsletterList
         ));
