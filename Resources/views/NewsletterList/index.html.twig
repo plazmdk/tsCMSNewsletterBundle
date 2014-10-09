@@ -14,7 +14,7 @@
         {% for newsletterlist in newsletterlists %}
             <tr>
                 <td>{{ newsletterlist.title }}</td>
-                <td>{{ newsletterlist.subscriberCount|length }}</td>
+                <td>{{ newsletterlist.subscribers|length }}</td>
                 <td>
                     <a href="{{ path("tscms_newsletter_newsletterlist_edit", {id: newsletterlist.id}) }}">
                         <i class="fa fa-edit"></i>
