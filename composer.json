@@ -1,0 +1,24 @@
+{
+    "name": "tscms/newsletter",
+    "autoload": {
+        "psr-0" : {
+            "tsCMS\\NewsletterBundle" : ""
+        }
+    },
+    "target-dir": "tsCMS/NewsletterBundle",
+    "require": {
+        "tscms/system": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/plazmdk/tsCMSSystemBundle"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
